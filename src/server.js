@@ -1,22 +1,19 @@
 /* eslint-disable no-console */
 import express from 'express'
-
+import { env } from './config/environment.js'
 import { CLOSE_DB, CONNECT_DB } from './config/mongodb.js'
 import exitHook from 'async-exit-hook'
 
 const START_SERVER = () => {
   const app = express()
 
-  const port = 8080
-  const hostname = 'localhost'
-
   app.get('/', (req, res) => {
     res.end('<h1>Hello World!</h1><hr>')
   })
 
-  app.listen(port, hostname, () => {
+  app.listen(env.APP_PORT, env.APP_HOST, () => {
     console.log(
-      `3. Hello BaoLong Dev 🎉, I'm running at: 🌐http://${hostname}:${port}/ `
+      `3. Hello ${env.AUTHOR} 🎉, I'm running at: 🌐http://${env.APP_HOST}:${env.APP_PORT}/ `
     )
   })
 
