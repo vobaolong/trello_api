@@ -1,16 +1,15 @@
 import { StatusCodes } from 'http-status-codes'
+import ApiError from '../utils/ApiError.js'
 
 const createNew = async (req, res, next) => {
   try {
     console.log(req.body)
-    res
-      .status(StatusCodes.CREATED)
-      .json({ message: 'POST from controller: API create new boards' })
+    throw new ApiError(StatusCodes.BAD_GATEWAY, 'baolongdev test error')
+    // res
+    //   .status(StatusCodes.CREATED)
+    //   .json({ message: 'POST from controller: API create new boards' })
   } catch (error) {
-    console.log(error)
-    res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
-      errors: new Error(error).message
-    })
+    next(error)
   }
 }
 
