@@ -1,7 +1,7 @@
 import express from 'express'
 import { StatusCodes } from 'http-status-codes'
-import { boardController } from '../../controllers/boardController.js'
-import { boardValidation } from '../../validations/boardValidation.js'
+import { boardController } from '~/controllers/boardController'
+import { boardValidation } from '~/validations/boardValidation'
 
 const Router = express.Router()
 

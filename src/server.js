@@ -3,6 +3,7 @@ import express from 'express'
 import { env } from './config/environment.js'
 import { CLOSE_DB, CONNECT_DB } from './config/mongodb.js'
 import exitHook from 'async-exit-hook'
+
 import { APIs_V1 } from './routes/v1/index.js'
 import { errorHandlingMiddleware } from './middlewares/errorHandlingMiddleware.js'
 
